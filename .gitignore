@@ -1,0 +1,17 @@
+node_modules
+
+build
+
+coverage
+bundles
+
+.vscode
+.idea
+
+.DS_STORE
+
+yarn-error.log
+
+.ts
+
+*.exe.stackdump
