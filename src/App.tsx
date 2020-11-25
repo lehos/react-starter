@@ -1,5 +1,11 @@
 import { Suspense, lazy } from 'react';
-import { Redirect, Route, RouteProps, BrowserRouter, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  RouteProps,
+  Switch,
+} from 'react-router-dom';
 
 import * as Session from '@/services/session';
 
@@ -30,9 +36,9 @@ function PrivateRoute(props: RouteProps) {
   return (
     <Route path={path} exact={exact}>
       {Session.getUser() ? (
-          <ErrorBoundary>
-            <Suspense fallback={null}>{children}</Suspense>
-          </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={null}>{children}</Suspense>
+        </ErrorBoundary>
       ) : (
         <Redirect to={`/login?returnUrl=${document.location.pathname}`} />
       )}
@@ -46,24 +52,24 @@ function NotFound() {
 
 export function App() {
   return (
-      <StylesProvider>
-        <BrowserRouter>
-          <Switch>
-            <PublicRoute path="/login" exact>
-              <LoginPage />
-            </PublicRoute>
+    <StylesProvider>
+      <BrowserRouter>
+        <Switch>
+          <PublicRoute path="/login" exact>
+            <LoginPage />
+          </PublicRoute>
 
-            <PrivateRoute path="/dashboard" exact>
-              <DashboardPage />
-            </PrivateRoute>
+          <PrivateRoute path="/dashboard" exact>
+            <DashboardPage />
+          </PrivateRoute>
 
-            <Redirect from="/" to="/dashboard" exact />
+          <Redirect from="/" to="/dashboard" exact />
 
-            <PrivateRoute path="/">
-              <NotFound />
-            </PrivateRoute>
-          </Switch>
-        </BrowserRouter>
-      </StylesProvider>
+          <PrivateRoute path="/">
+            <NotFound />
+          </PrivateRoute>
+        </Switch>
+      </BrowserRouter>
+    </StylesProvider>
   );
 }

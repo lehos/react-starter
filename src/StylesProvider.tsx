@@ -3,7 +3,7 @@ import { CacheProvider, Global, css } from '@emotion/react';
 import { ReactNode } from 'react';
 
 const cache = createCache({
-  key: 'my-prefix-key'
+  key: 'my-prefix-key',
 });
 
 export const globalStyles = css`

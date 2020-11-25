@@ -10,7 +10,7 @@ module.exports = function exports(api) {
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-export-namespace-from',
     [
-      '@emotion',
+      '@emotion/babel-plugin',
       { sourceMap: NODE_ENV === 'development', cssPropOptimization: true }
     ]
   ];
@@ -36,10 +36,11 @@ module.exports = function exports(api) {
           debug: NODE_ENV === 'production'
         }
       ],
+
       ['@babel/preset-typescript', { allExtensions: true, isTSX: true }],
       [
         '@babel/preset-react',
-        // { runtime: 'automatic', importSource: '@emotion/core' }
+        { runtime: 'automatic' }
       ]
     ],
     plugins
