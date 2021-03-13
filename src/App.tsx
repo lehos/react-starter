@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import * as Session from '@/services/session';
-
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 import { StylesProvider } from './StylesProvider';

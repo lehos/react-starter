@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 export class ErrorBoundary extends Component {
   state = {
-    error: null as any
+    error: null as any,
   };
 
   componentDidCatch(error: Error) {
@@ -12,6 +12,6 @@ export class ErrorBoundary extends Component {
   render() {
     if (!this.state.error) return this.props.children;
 
-    return <>Что-то пошло не так</>;
+    return <>Something went wrong</>;
   }
 }

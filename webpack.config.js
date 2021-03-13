@@ -48,7 +48,7 @@ module.exports = function exports() {
     output: {
       path: BUILD_PATH,
       publicPath: '/',
-      filename: '[name].[chunkhash].js'
+      filename: '[name].[chunkhash].js',
     },
     resolve: {
       alias: resolveAlias,
@@ -78,7 +78,7 @@ module.exports = function exports() {
       ],
     },
     plugins,
-    devtool: NODE_ENV === 'production' ? 'none' : 'source-map',
+    devtool: NODE_ENV === 'production' ? false : 'source-map',
     devServer: {
       port: 8080,
       historyApiFallback: true,
